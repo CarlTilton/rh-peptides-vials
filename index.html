@@ -349,6 +349,7 @@
 
         // Upload Handlers
         const handleVialImage = (img, name) => {
+            img.crossOrigin = "Anonymous"; // Try to prevent tainting if loaded from URL
             vialImgNode.image(img);
             const scale = Math.min(width / img.width, height / img.height);
             vialImgNode.width(img.width * scale);
@@ -367,6 +368,7 @@
             const reader = new FileReader();
             reader.onload = (ev) => {
                 const img = new Image();
+                img.crossOrigin = "Anonymous";
                 img.onload = () => handleVialImage(img, file.name);
                 img.src = ev.target.result;
             };
@@ -376,6 +378,7 @@
         // Load Default Vial on Start
         window.onload = () => {
             const img = new Image();
+            img.crossOrigin = "Anonymous";
             img.onload = () => handleVialImage(img, 'default-vial.png');
             img.src = DEFAULT_VIAL_BASE64;
         };
@@ -385,6 +388,7 @@
             const reader = new FileReader();
             reader.onload = (ev) => {
                 const img = new Image();
+                img.crossOrigin = "Anonymous";
                 img.onload = () => {
                     originalLabelImageObj = img; // Store raw for cropping
                     labelImgNode.image(img);
@@ -553,28 +557,27 @@
                 // Ensure the stage is rendered correctly before capture
                 mainLayer.draw();
 
-                // Using toDataURL (JPEG) for maximum compatibility with local file:// protocols
-                // This avoids the Blob/revocation issues seen in some Mac browsers
-                const dataUrl = stage.toDataURL({
-                    mimeType: 'image/jpeg',
-                    quality: 0.9,
-                    pixelRatio: 1.5,
-                    backgroundColor: 'white' // Flatten transparency onto white
-                });
+                // Safer Blob-based Export
+                stage.toCanvas().toBlob((blob) => {
+                    if (!blob) {
+                        throw new Error('Blob creation failed.');
+                    }
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = `vial-render-${Math.floor(Date.now() / 1000)}.jpg`;
+                    link.href = url;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
 
-                const link = document.createElement('a');
-                link.download = `vial-render-${Math.floor(Date.now() / 1000)}.jpg`;
-                link.href = dataUrl;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-                btn.innerText = 'Saved!';
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                }, 1500);
+                    btn.innerText = 'Saved!';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }, 1500);
+                }, 'image/jpeg', 0.9);
 
             } catch (err) {
                 console.error('Export failed:', err);
@@ -582,9 +585,9 @@
                 btn.disabled = false;
                 btn.style.opacity = '1';
 
-                let errorMsg = 'Export failed.';
+                let errorMsg = 'Export failed: ' + err.message;
                 if (err.name === 'SecurityError') {
-                    errorMsg += ' This is usually caused by browser security restrictions on local files. Try using a different browser or ensure the image is fully loaded.';
+                    errorMsg = 'Security Error: Improve browser compatibility by hosting this file on a server (e.g. Netlify/GitHub Pages) instead of opening it directly.';
                 }
                 alert(errorMsg);
             }
@@ -897,6 +900,7 @@
             // (In a production app, we'd cache the file object from the upload listener)
             if (!originalLabelImageObj) {
                 const img = new Image();
+                img.crossOrigin = "Anonymous";
                 img.onload = () => {
                     originalLabelImageObj = img;
                     initCrop();
@@ -948,6 +952,7 @@
 
             // 4. Update the main app state
             const newImg = new Image();
+            newImg.crossOrigin = "Anonymous";
             newImg.onload = () => {
                 labelImgNode.image(newImg);
                 labelImgNode.width(newImg.width * 0.5); // Reset viewing size or keep ratio
