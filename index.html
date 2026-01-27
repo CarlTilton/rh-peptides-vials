@@ -557,8 +557,11 @@
                 // Ensure the stage is rendered correctly before capture
                 mainLayer.draw();
 
-                // Safer Blob-based Export
-                stage.toCanvas().toBlob((blob) => {
+                // Safer Blob-based Export with Config
+                stage.toCanvas({
+                    pixelRatio: 1.5,
+                    backgroundColor: 'white'
+                }).toBlob((blob) => {
                     if (!blob) {
                         throw new Error('Blob creation failed.');
                     }
