@@ -130,6 +130,11 @@
             border-radius: 8px;
             overflow: hidden;
             background: #000;
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .button {
@@ -249,6 +254,31 @@
             width: width,
             height: height,
         });
+
+        // Responsive Scaling Logic
+        const fitStageIntoParentContainer = () => {
+            const container = document.querySelector('main');
+            if (!container) return;
+
+            // Get available space (minus padding/margins if any)
+            const containerWidth = container.offsetWidth - 40; // 20px padding each side
+            const containerHeight = container.offsetHeight - 40;
+
+            // Calculate scale to fit
+            const scale = Math.min(
+                containerWidth / width,
+                containerHeight / height
+            );
+
+            // Apply scale (but don't scale up past original size to keep crispness)
+            stage.width(width * Math.min(1, scale));
+            stage.height(height * Math.min(1, scale));
+            stage.scale({ x: Math.min(1, scale), y: Math.min(1, scale) });
+        };
+
+        // Initial fit and listen for resize
+        fitStageIntoParentContainer();
+        window.addEventListener('resize', fitStageIntoParentContainer);
 
         const mainLayer = new Konva.Layer();
         const effectLayer = new Konva.Layer();
