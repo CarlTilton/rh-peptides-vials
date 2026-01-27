@@ -165,6 +165,34 @@
             gap: 12px;
             margin-top: auto;
         }
+
+        /* Crop Overlay Styles */
+        #crop-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #crop-container {
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .crop-controls {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+        }
     </style>
 </head>
 
@@ -187,6 +215,9 @@
                     <span id="label-status">Click to upload label</span>
                     <input type="file" id="label-upload" accept="image/*">
                 </div>
+                <!-- Crop Button -->
+                <button type="button" class="button secondary" id="crop-btn" style="margin-top: 8px;">Crop
+                    Label</button>
             </div>
         </div>
 
@@ -241,6 +272,15 @@
 
     <main>
         <div id="canvas-container"></div>
+
+        <!-- Crop UI Overlay -->
+        <div id="crop-overlay">
+            <div id="crop-container"></div>
+            <div class="crop-controls">
+                <button class="button" id="apply-crop-btn">Apply Crop</button>
+                <button class="button secondary" id="cancel-crop-btn">Cancel</button>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -346,6 +386,7 @@
             reader.onload = (ev) => {
                 const img = new Image();
                 img.onload = () => {
+                    originalLabelImageObj = img; // Store raw for cropping
                     labelImgNode.image(img);
                     labelImgNode.width(img.width * 0.5);
                     labelImgNode.height(img.height * 0.5);
@@ -769,6 +810,162 @@
             analyzeLighting(); // Also analyze lighting during magic fit
             updateTransform();
             alert('Magic Fit applied!');
+        };
+
+        // --- CROP FUNCTIONALITY ---
+        let cropStage, cropLayer, cropImageNode, cropTransformer, cropRect;
+        let originalLabelImageObj = null; // Store the original uncropped image
+
+        const initCrop = () => {
+            if (!originalLabelImageObj) return;
+
+            const overlay = document.getElementById('crop-overlay');
+            const container = document.getElementById('crop-container');
+            overlay.style.display = 'flex';
+
+            // Clean up previous instance if exists
+            if (cropStage) cropStage.destroy();
+
+            // Calculate max dimensions for the crop view
+            const maxWidth = window.innerWidth * 0.8;
+            const maxHeight = window.innerHeight * 0.7;
+            const scale = Math.min(maxWidth / originalLabelImageObj.width, maxHeight / originalLabelImageObj.height);
+
+            const displayWidth = originalLabelImageObj.width * scale;
+            const displayHeight = originalLabelImageObj.height * scale;
+
+            cropStage = new Konva.Stage({
+                container: 'crop-container',
+                width: displayWidth,
+                height: displayHeight,
+            });
+
+            cropLayer = new Konva.Layer();
+            cropStage.add(cropLayer);
+
+            // Display the full original image
+            cropImageNode = new Konva.Image({
+                x: 0,
+                y: 0,
+                image: originalLabelImageObj,
+                width: displayWidth,
+                height: displayHeight,
+                listening: false
+            });
+            cropLayer.add(cropImageNode);
+
+            // Create a selection rectangle
+            const initialCropW = displayWidth * 0.8;
+            const initialCropH = displayHeight * 0.5;
+
+            cropRect = new Konva.Rect({
+                x: (displayWidth - initialCropW) / 2,
+                y: (displayHeight - initialCropH) / 2,
+                width: initialCropW,
+                height: initialCropH,
+                fill: 'rgba(255, 255, 255, 0.2)',
+                stroke: 'white',
+                strokeWidth: 2,
+                draggable: true,
+                name: 'cropRect'
+            });
+            cropLayer.add(cropRect);
+
+            // Transformer for resizing
+            cropTransformer = new Konva.Transformer({
+                nodes: [cropRect],
+                keepRatio: false,
+                boundBoxFunc: (oldBox, newBox) => {
+                    // Simple bounds checking could go here
+                    return newBox;
+                }
+            });
+            cropLayer.add(cropTransformer);
+        };
+
+        document.getElementById('crop-btn').onclick = () => {
+            // If we have a current label, use its source as the "original" if not yet stored
+            // Ideally, we store the full-res upload separately.
+            // For now, we assume the user just uploaded something or we grab the current src.
+            const currentSrc = labelImgNode.image() ? labelImgNode.image().src : null;
+            if (!currentSrc) {
+                alert('Please upload a label first.');
+                return;
+            }
+
+            // Always reload the source to ensure we crop from the best quality we have currently
+            // (In a production app, we'd cache the file object from the upload listener)
+            if (!originalLabelImageObj) {
+                const img = new Image();
+                img.onload = () => {
+                    originalLabelImageObj = img;
+                    initCrop();
+                };
+                img.src = currentSrc;
+            } else {
+                initCrop();
+            }
+        };
+
+        document.getElementById('cancel-crop-btn').onclick = () => {
+            document.getElementById('crop-overlay').style.display = 'none';
+        };
+
+        document.getElementById('apply-crop-btn').onclick = () => {
+            if (!cropRect || !cropImageNode) return;
+
+            // 1. Get the crop selection in "display" coordinates
+            const rectX = cropRect.x();
+            const rectY = cropRect.y();
+            const rectW = cropRect.width() * cropRect.scaleX();
+            const rectH = cropRect.height() * cropRect.scaleY();
+
+            // 2. Map back to original image coordinates
+            // displayWidth / originalWidth = scaleFactor
+            const scaleFactor = cropImageNode.width() / originalLabelImageObj.width;
+
+            const sourceX = Math.max(0, rectX / scaleFactor);
+            const sourceY = Math.max(0, rectY / scaleFactor);
+            const sourceW = Math.min(originalLabelImageObj.width - sourceX, rectW / scaleFactor);
+            const sourceH = Math.min(originalLabelImageObj.height - sourceY, rectH / scaleFactor);
+
+            if (sourceW <= 0 || sourceH <= 0) {
+                alert('Invalid crop area.');
+                return;
+            }
+
+            // 3. Draw to hidden canvas to execute crop
+            const hiddenCanvas = document.createElement('canvas');
+            hiddenCanvas.width = sourceW;
+            hiddenCanvas.height = sourceH;
+            const ctx = hiddenCanvas.getContext('2d');
+
+            ctx.drawImage(
+                originalLabelImageObj,
+                sourceX, sourceY, sourceW, sourceH, // Source
+                0, 0, sourceW, sourceH              // Destination
+            );
+
+            // 4. Update the main app state
+            const newImg = new Image();
+            newImg.onload = () => {
+                labelImgNode.image(newImg);
+                labelImgNode.width(newImg.width * 0.5); // Reset viewing size or keep ratio
+                labelImgNode.height(newImg.height * 0.5);
+
+                // Update Group Offset to match new center
+                labelGroup.offsetX(labelImgNode.width() / 2);
+                labelGroup.offsetY(labelImgNode.height() / 2);
+
+                updateTransform();
+
+                // Update 'original' for next crop to be recursive? 
+                // Or keep original-original? Let's update it so they can crop again finely.
+                originalLabelImageObj = newImg;
+
+                document.getElementById('crop-overlay').style.display = 'none';
+            };
+            newImg.src = hiddenCanvas.toDataURL();
         };
     </script>
 </body>
