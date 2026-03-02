@@ -382,13 +382,17 @@
             };
 
             labelGroup.filters([cylinderWarp]);
+
+            // Adjust pixelRatio and base dimensions to ensure high-res output at 10x
+            const cachePixelRatio = Math.min(4, 2 * originalScale); // Cap at 4 for performance
+
             labelGroup.cache({
                 x: -padding,
                 y: -padding,
                 width: labelImgNode.width() + padding * 2,
                 height: labelImgNode.height() + padding * 2,
                 offset: padding,
-                pixelRatio: 2
+                pixelRatio: cachePixelRatio
             });
             labelGroup.scale({ x: originalScale, y: originalScale });
         };
