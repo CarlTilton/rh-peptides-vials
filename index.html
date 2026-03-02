@@ -258,7 +258,7 @@
         const vialImgNode = new Konva.Image({ x: 0, y: 0, width, height });
         const labelGroup = new Konva.Group();
         const labelImgNode = new Konva.Image({ draggable: false });
-        
+
         mainLayer.add(vialImgNode);
         mainLayer.add(labelGroup);
         labelGroup.add(labelImgNode);
@@ -415,7 +415,7 @@
                 // Center offset for rotation
                 labelImgNode.offsetX(img.width / 2);
                 labelImgNode.offsetY(img.height / 2);
-                
+
                 document.getElementById('label-status').innerText = "Label Loaded ✓";
                 updateTransform();
             };
