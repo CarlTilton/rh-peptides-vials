@@ -239,8 +239,7 @@
     </main>
 
     <script>
-
-        const DEFAULT_VIAL_BASE64 = "data:image/jpeg;base64,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UYHkqm/JQAB1UE5QDY7ogIiIABKnooHjlQOiCUREBSD5qEYgnJHgpOPFR7Se0ghERAQdUUjxQC3yQAjxUDxTdAKIPVEBCcoNgiAiIgIiDKAiIEBFPRQgIiIIaQNkcfBQdjsoQSq2HIVA6puOiCrk3VWBjCpaeufNEEcvvVWcHZQiAiIgIiICIiAiIgKB0UpjZAREQFUCFSiCtUk+RUKMepQSjTjqidUDO+UREBERAREQEREAdUREBERARSNxhQgIiICZwiICIiAiIgZwiIgIIKCUQEREEDopREBETdAREQQOilEQSPMlSRlRkqB6koHRMoiAiIgIiICIiAiIgIiICIiCWofLCb8qNQQikj1UICIiAiIgIiICIiCMBSiICIiAiIgdEREBERAREQEREBERAREQFA3UogIiICIiAiKMe9BKIiAiIgIiICIiAiIghuBsoJBQjBU426IJCIwZAU9DnCB47qPciICIiAiN6bhM4QQ3KlEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREEDopREBERAREQEREEDopREBERARSRhQgIiICKBnG6noggdFKIgIiICIiAiJhAQZ8ERp65QMFFIOFCAiJ1CCG9FKhvRSgIh3QHCCpvTCDooagONigHcqFOd8qEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERATqidEBEyfNEBERBDf0qPEqpijx6IDOgCkb9SgUkABBCZwpDchQgZwiIOqCRk+KhVKlAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARFIw7byQUtIGyY3yo5TjKkHwwglTkYVPUbhS3YHIQT7PkoUgjyTGUEYJQKo9FQOiCR1O6IpxtlBCKcY6qEBERAREQEREBERAREQEREBERAREQEREBFORjChAREQEREBERAREQEREBERAREQEREBERAREQAMqQMqB1U4OUEIpIPUqMjogImCUQT0O4QhSM+KlBQiqIVKAiIgZPmiKeVBCKeVMFBCJjKnB8kEIp5fVOVBCKrB9EOUFKIiAiYyp5fJBCKcFQgIikDxyghEPVEBEUDPiglERARTj1ChAREQEREBERAREQEREBERAwiZyMIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICBFP6kFGSoUjqoQSOqqTZUkb9EFSIiAiIgkDKY2yoRAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf//Z";
+        const DEFAULT_VIAL_BASE64 = "data:image/jpeg;base64,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YHkqm/JQAB1UE5QDY7ogIiIABKnooHjlQOiCUREBSD5qEYgnJHgpOPFR7Se0ghERAQdUUjxQC3yQAjxUDxTdAKIPVEBCcoNgiAiIgIiDKAiIEBFPRQgIiIIaQNkcfBQdjsoQSq2HIVA6puOiCrk3VWBjCpaeufNEEcvvVWcHZQiAiIgIiICIiAiIgKB0UpjZAREQFUCFSiCtUk+RUKMepQSjTjqidUDO+UREBERAREQEREAdUREBERARSNxhQgIiICZwiICIiAiIgZwiIgIIKCUQEREEDopREBETdAREQQOilEQSPMlSRlRkqB6koHRMoiAiIgIiICIiAiIgIiICIiCWofLCb8qNQQikj1UICIiAiIgIiICIiCMBSiICIiAiIgdEREBERAREQEREBERAREQFA3UogIiICIiAiKMe9BKIiAiIgIiICIiAiIghuBsoJBQjBU426IJCIwZAU9DnCB47qPciICIiAiN6bhM4QQ3KlEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREEDopREBERAREQEREEDopREBERARSRhQgIiICKBnG6noggdFKIgIiICIiAiJhAQZ8ERp65QMFFIOFCAiJ1CCG9FKhvRSgIh3QHCCpvTCDooagONigHcqFOd8qEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERATqidEBEyfNEBERBDf0qPEqpijx6IDOgCkb9SgUkABBCZwpDchQgZwiIOqCRk+KhVKlAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARFIw7byQUtIGyY3yo5TjKkHwwglTkYVPUbhS3YHIQT7PkoUgjyTGUEYJQKo9FQOiCR1O6IpxtlBCKcY6qEBERAREQEREBERAREQEREBERAREQEREBFORjChAREQEREBERAREQEREBERAREQEREBERAREQAMqQMqB1U4OUEIpIPUqMjogImCUQT0O4QhSM+KlBQiqIVKAiIgZPmiKeVBCKeVMFBCJjKnB8kEIp5fVOVBCKrB9EOUFKIiAiYyp5fJBCKcFQgIikDxyghEPVEBEUDPiglERARTj1ChAREQEREBERAREQEREBERAwiZyMIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICBFP6kFGSoUjqoQSOqqTZUkb9EFSIiAiIgkDKY2yoRAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf//Z";
 
         // Constants & Utilities
         const width = 1000;
@@ -258,12 +257,14 @@
         const vialImgNode = new Konva.Image({ x: 0, y: 0, width, height });
         const labelGroup = new Konva.Group();
         const labelImgNode = new Konva.Image({ draggable: false });
+        let originalLabelImageObj = null;
 
         mainLayer.add(vialImgNode);
         mainLayer.add(labelGroup);
         labelGroup.add(labelImgNode);
 
-        // Upload Handlers
+        // --- Core Processing Functions ---
+
         const handleVialImage = (img, name) => {
             vialImgNode.image(img);
             const scale = Math.min(width / img.width, height / img.height);
@@ -278,66 +279,44 @@
             setTimeout(analyzeLighting, 100);
         };
 
-        document.getElementById('vial-upload').onchange = (e) => {
+        const handleUpload = (e, type) => {
             const file = e.target.files[0];
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                const img = new Image();
-                img.onload = () => handleVialImage(img, file.name);
-                img.src = ev.target.result;
-            };
-            reader.readAsDataURL(file);
-        };
-
-        // Load Default Vial on Start
-        window.onload = () => {
-            const img = new Image();
-            img.onload = () => handleVialImage(img, 'default-vial.png');
-            img.src = DEFAULT_VIAL_BASE64;
-        };
-
-        document.getElementById('label-upload').onchange = (e) => {
-            const file = e.target.files[0];
+            if (!file) return;
             const reader = new FileReader();
             reader.onload = (ev) => {
                 const img = new Image();
                 img.onload = () => {
-                    originalLabelImageObj = img; // Store raw for cropping
-                    labelImgNode.image(img);
-                    labelImgNode.width(img.width);
-                    labelImgNode.height(img.height);
-                    // Center the label in the group's local coordinates
-                    labelImgNode.x(0);
-                    labelImgNode.y(0);
-                    // Set group offset to center the content
-                    labelGroup.offsetX(labelImgNode.width() / 2);
-                    labelGroup.offsetY(labelImgNode.height() / 2);
-                    updateTransform();
-                    document.getElementById('label-status').innerText = file.name;
+                    if (type === 'vial') {
+                        handleVialImage(img, file.name);
+                    } else if (type === 'label') {
+                        originalLabelImageObj = img;
+                        labelImgNode.image(img);
+                        labelImgNode.width(img.width);
+                        labelImgNode.height(img.height);
+                        labelImgNode.x(0);
+                        labelImgNode.y(0);
+                        labelGroup.offsetX(img.width / 2);
+                        labelGroup.offsetY(img.height / 2);
+                        document.getElementById('label-status').innerText = file.name;
+                        updateTransform();
+                    }
                 };
                 img.src = ev.target.result;
             };
             reader.readAsDataURL(file);
         };
 
-        // Controls
         const updateTransform = () => {
-            // Guard: don't run if core nodes aren't ready
-            if (!labelGroup || !labelImgNode) {
-                console.warn('updateTransform: Nodes not ready.');
-                return;
-            }
+            if (!labelGroup || !labelImgNode) return;
 
             const px = document.getElementById('posX').value / 1000 * width;
             const py = document.getElementById('posY').value / 1000 * height;
             const sc = document.getElementById('scale').value / 100;
             const rt = document.getElementById('rotation').value;
 
-            // Move the whole group
             labelGroup.x(px);
             labelGroup.y(py);
-            labelGroup.scaleX(sc);
-            labelGroup.scaleY(sc);
+            labelGroup.scale({ x: sc, y: sc });
             labelGroup.rotation(rt);
 
             updateLighting();
@@ -351,34 +330,29 @@
             const wrapIntensity = document.getElementById('wrap-intensity').value / 100;
             const smileIntensity = document.getElementById('smile-intensity').value / 100;
 
-            // FIX: Normalize scale to 1 before caching to prevent clipping at high zoom.
-            // Konva will then scale the cached output to the desired size.
             const originalScale = labelGroup.scaleX();
             labelGroup.scale({ x: 1, y: 1 });
-
             labelGroup.clearCache();
 
-            // FIXED PADDNG for 1x scale
             const padding = 200;
 
             const cylinderWarp = function (imageData) {
                 if (wrapIntensity === 0 && smileIntensity === 0) return;
 
                 const data = imageData.data;
-                const width = imageData.width;
-                const height = imageData.height;
+                const w = imageData.width;
+                const h = imageData.height;
                 const outData = new Uint8ClampedArray(data.length);
 
-                const centerX = width / 2;
-                const labelWidth = width - padding * 2;
-
+                const centerX = w / 2;
+                const labelWidth = w - padding * 2;
                 const theta = wrapIntensity * (Math.PI / 2);
                 const visibleWidthFactor = theta > 0 ? Math.sin(theta) / theta : 1;
                 const visibleHalfWidth = (labelWidth / 2) * visibleWidthFactor;
 
-                for (let y = 0; y < height; y++) {
-                    for (let x = 0; x < width; x++) {
-                        const idx = (y * width + x) * 4;
+                for (let y = 0; y < h; y++) {
+                    for (let x = 0; x < w; x++) {
+                        const idx = (y * w + x) * 4;
                         const nx = (x - centerX) / visibleHalfWidth;
                         if (Math.abs(nx) > 1) continue;
 
@@ -395,8 +369,8 @@
                             sourceY = Math.round(y - verticalShift);
                         }
 
-                        if (sourceX >= 0 && sourceX < width && sourceY >= 0 && sourceY < height) {
-                            const sourceIdx = (sourceY * width + sourceX) * 4;
+                        if (sourceX >= 0 && sourceX < w && sourceY >= 0 && sourceY < h) {
+                            const sourceIdx = (sourceY * w + sourceX) * 4;
                             outData[idx] = data[sourceIdx];
                             outData[idx + 1] = data[sourceIdx + 1];
                             outData[idx + 2] = data[sourceIdx + 2];
@@ -408,31 +382,24 @@
             };
 
             labelGroup.filters([cylinderWarp]);
-
             labelGroup.cache({
                 x: -padding,
                 y: -padding,
                 width: labelImgNode.width() + padding * 2,
                 height: labelImgNode.height() + padding * 2,
                 offset: padding,
-                pixelRatio: 2 // High detail for resizing
+                pixelRatio: 2
             });
-
-            // Restore desired scale
             labelGroup.scale({ x: originalScale, y: originalScale });
         };
 
         const updateLighting = () => {
-            // Remove existing overlays from group
             labelGroup.find('.lighting').forEach(node => node.destroy());
-
             if (!labelImgNode.image()) return;
 
             const shadowOpacity = document.getElementById('shadow-opacity').value / 100;
             const highlightOpacity = document.getElementById('highlight-opacity').value / 100;
 
-            // Create a "wrap" effect by adding linear gradients over the label
-            // These now live INSIDE the group so they warp with the label
             const shadowOverlay = new Konva.Rect({
                 name: 'lighting',
                 x: 0,
@@ -442,7 +409,7 @@
                 fillLinearGradientStartPoint: { x: 0, y: 0 },
                 fillLinearGradientEndPoint: { x: labelImgNode.width(), y: 0 },
                 fillLinearGradientColorStops: [0, `rgba(0,0,0,${shadowOpacity})`, 0.5, 'transparent', 1, 'transparent'],
-                globalCompositeOperation: 'source-atop', // CLIPS TO LABEL SHAPE
+                globalCompositeOperation: 'source-atop',
                 listening: false
             });
 
@@ -455,7 +422,7 @@
                 fillLinearGradientStartPoint: { x: 0, y: 0 },
                 fillLinearGradientEndPoint: { x: labelImgNode.width(), y: 0 },
                 fillLinearGradientColorStops: [0, 'transparent', 0.5, 'transparent', 0.8, `rgba(255,255,255,${highlightOpacity})`, 1, 'transparent'],
-                globalCompositeOperation: 'source-atop', // CLIPS TO LABEL SHAPE
+                globalCompositeOperation: 'source-atop',
                 listening: false
             });
 
@@ -463,96 +430,80 @@
             labelGroup.add(highlightOverlay);
         };
 
-        // Image Handling
-        function loadVial(src) {
-            const img = new Image();
-            img.onload = () => {
-                vialImgNode.image(img);
-                document.getElementById('vial-status').innerText = "Vial Loaded ✓";
-                mainLayer.batchDraw();
-            };
-            img.src = src;
-        }
+        const analyzeLighting = () => {
+            if (!vialImgNode.image()) return;
+            const canvas = document.createElement('canvas');
+            canvas.width = vialImgNode.width() || 100;
+            canvas.height = vialImgNode.height() || 100;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(vialImgNode.image(), 0, 0, canvas.width, canvas.height);
 
-        function loadLabel(src) {
-            const img = new Image();
-            img.onload = () => {
-                labelImgNode.image(img);
-                labelImgNode.width(img.width);
-                labelImgNode.height(img.height);
-                // Center offset for rotation
-                labelImgNode.offsetX(img.width / 2);
-                labelImgNode.offsetY(img.height / 2);
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+            const w = canvas.width;
+            const h = canvas.height;
 
-                document.getElementById('label-status').innerText = "Label Loaded ✓";
-                updateTransform();
-            };
-            img.src = src;
-        }
+            const startY = Math.floor(h * 0.3);
+            const endY = Math.floor(h * 0.7);
 
-        // Initialize with default
-        loadVial(DEFAULT_VIAL_BASE64);
+            let maxBrightness = 0;
+            let minBrightness = 255;
+            let avgBrightness = 0;
+            let count = 0;
 
-        // Event Listeners
-        document.querySelectorAll('input[type="range"]').forEach(input => {
-            input.addEventListener('input', updateTransform);
-        });
+            for (let y = startY; y < endY; y++) {
+                for (let x = Math.floor(w * 0.25); x < Math.floor(w * 0.75); x++) {
+                    const idx = (y * w + x) * 4;
+                    const brightness = (data[idx] + data[idx + 1] + data[idx + 2]) / 3;
+                    if (brightness > maxBrightness) maxBrightness = brightness;
+                    if (brightness < minBrightness) minBrightness = brightness;
+                    avgBrightness += brightness;
+                    count++;
+                }
+            }
+            avgBrightness /= count;
 
-        document.getElementById('vial-upload').onchange = (e) => {
-            const file = e.target.files[0];
-            const reader = new FileReader();
-            reader.onload = (event) => loadVial(event.target.result);
-            reader.readAsDataURL(file);
+            const highlightRange = maxBrightness - avgBrightness;
+            const newHighlight = Math.min(100, Math.max(10, (highlightRange / 255) * 300));
+            const shadowRange = avgBrightness - minBrightness;
+            const newShadow = Math.min(100, Math.max(10, (shadowRange / 255) * 400));
+
+            document.getElementById('highlight-opacity').value = Math.round(newHighlight);
+            document.getElementById('shadow-opacity').value = Math.round(newShadow);
+            updateTransform();
         };
 
-        document.getElementById('label-upload').onchange = (e) => {
-            const file = e.target.files[0];
-            const reader = new FileReader();
-            reader.onload = (event) => loadLabel(event.target.result);
-            reader.readAsDataURL(file);
-        };
+        // --- Logic Handlers ---
 
-        // Robust Compatibility-First JPEG Export
         document.getElementById('export-btn').onclick = function () {
             const btn = this;
             const originalText = btn.innerText;
-
             try {
                 btn.innerText = 'Saving...';
-                btn.style.opacity = '0.7';
                 btn.disabled = true;
-
-                // Ensure the stage is rendered correctly before capture
                 mainLayer.draw();
-
-                // Using toDataURL (JPEG) for maximum compatibility with local file:// protocols
-                // This avoids the Blob/revocation issues seen in some Mac browsers
                 const dataUrl = stage.toDataURL({
                     mimeType: 'image/jpeg',
                     quality: 0.9,
                     pixelRatio: 1.5,
-                    backgroundColor: 'white' // Flatten transparency onto white
+                    backgroundColor: 'white'
                 });
-
                 const link = document.createElement('a');
                 link.download = `vial-render-${Math.floor(Date.now() / 1000)}.jpg`;
                 link.href = dataUrl;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-
                 setTimeout(() => {
                     btn.innerText = 'Saved!';
                     setTimeout(() => {
                         btn.innerText = originalText;
-                        btn.style.opacity = '1';
                         btn.disabled = false;
                     }, 1500);
                 }, 500);
-
             } catch (err) {
                 console.error('Export failed:', err);
-                alert('Export failed. Please try again or check console for errors.');
+                alert('Export failed.');
                 btn.innerText = 'Error';
                 btn.disabled = false;
             }
@@ -570,211 +521,90 @@
                 highlight: document.getElementById('highlight-opacity').value
             };
             const configStr = JSON.stringify(config);
-
-            const btn = document.getElementById('config-btn');
-            const originalText = btn.innerText;
-
             try {
-                if (navigator.clipboard && window.isSecureContext) {
+                if (navigator.clipboard) {
                     navigator.clipboard.writeText(configStr);
-                } else {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = configStr;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
                 }
-
-                btn.innerText = 'Copied!';
-                setTimeout(() => btn.innerText = originalText, 1500);
+                alert('Config copied to clipboard!');
             } catch (err) {
-                console.error('Copy failed:', err);
-                alert('Copy failed. Manual config: ' + configStr);
+                alert('Manual config: ' + configStr);
             }
         };
 
         document.getElementById('import-btn').onclick = () => {
             const input = prompt('Paste your Configuration JSON here:');
-            if (!input) {
-                console.log('Import cancelled or empty input.');
-                return;
-            }
-
-            console.log('Raw import string:', input);
-
-            let config;
+            if (!input) return;
             try {
-                config = JSON.parse(input);
-                console.log('Parsed config object:', config);
-            } catch (err) {
-                console.error('JSON Parse Error:', err);
-                alert('Invalid JSON configuration string.');
-                return;
-            }
-
-            try {
+                const config = JSON.parse(input);
                 const mapping = {
-                    posX: 'posX',
-                    posY: 'posY',
-                    scale: 'scale',
-                    rotation: 'rotation',
-                    wrap: 'wrap-intensity',
-                    smile: 'smile-intensity',
-                    shadow: 'shadow-opacity',
-                    highlight: 'highlight-opacity'
+                    posX: 'posX', posY: 'posY', scale: 'scale', rotation: 'rotation',
+                    wrap: 'wrap-intensity', smile: 'smile-intensity',
+                    shadow: 'shadow-opacity', highlight: 'highlight-opacity'
                 };
-
-                let count = 0;
                 for (const [key, elId] of Object.entries(mapping)) {
                     if (config[key] !== undefined) {
                         const el = document.getElementById(elId);
-                        if (el) {
-                            el.value = config[key];
-                            // Critical: Dispatch event so Konva/listeners update!
-                            el.dispatchEvent(new Event('input', { bubbles: true }));
-                            count++;
-                        } else {
-                            console.warn(`Element #${elId} not found.`);
-                        }
+                        if (el) el.value = config[key];
                     }
                 }
-
-                if (count > 0) {
-                    // Force a final update just in case
-                    updateTransform();
-                    console.log(`Success: ${count} fields updated.`);
-                    alert(`Configuration imported (${count} fields updated)!`);
-                } else {
-                    console.warn('No matching keys found in config object.');
-                    alert('No valid configuration fields found in input.');
-                }
+                updateTransform();
+                alert('Configuration imported!');
             } catch (err) {
-                console.error('Runtime Import Error:', err);
-                alert('An error occurred during import. Check console.');
+                alert('Invalid JSON.');
             }
         };
 
-        // Lighting Analysis Logic
-        const analyzeLighting = () => {
-            if (!vialImgNode.image()) return;
-
-            const canvas = document.createElement('canvas');
-            canvas.width = vialImgNode.width();
-            canvas.height = vialImgNode.height();
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(vialImgNode.image(), 0, 0, canvas.width, canvas.height);
-
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
-            const w = canvas.width;
-            const h = canvas.height;
-
-            // Sample vertical strip in the middle to find highlights/shadows
-            const stripX = Math.floor(w / 2);
-            const startY = Math.floor(h * 0.3);
-            const endY = Math.floor(h * 0.7);
-
-            let maxBrightness = 0;
-            let minBrightness = 255;
-            let avgBrightness = 0;
-            let count = 0;
-
-            for (let y = startY; y < endY; y++) {
-                // Sample horizontal strip across the vial's body
-                for (let x = Math.floor(w * 0.25); x < Math.floor(w * 0.75); x++) {
-                    const idx = (y * w + x) * 4;
-                    const brightness = (data[idx] + data[idx + 1] + data[idx + 2]) / 3;
-
-                    if (brightness > maxBrightness) maxBrightness = brightness;
-                    if (brightness < minBrightness) minBrightness = brightness;
-                    avgBrightness += brightness;
-                    count++;
-                }
-            }
-            avgBrightness /= count;
-
-            // Map brightness extremes to intensities
-            // Highlights: How much BRIGHTER is the peak than the average?
-            const highlightRange = maxBrightness - avgBrightness;
-            const newHighlight = Math.min(100, Math.max(10, (highlightRange / 255) * 300));
-
-            // Shadows: How much DARKER is the valley than the average?
-            const shadowRange = avgBrightness - minBrightness;
-            const newShadow = Math.min(100, Math.max(10, (shadowRange / 255) * 400));
-
-            document.getElementById('highlight-opacity').value = Math.round(newHighlight);
-            document.getElementById('shadow-opacity').value = Math.round(newShadow);
-
-            updateTransform();
-        };
-
-        // Magic Fit (Edge Detection)
         document.getElementById('autofit-btn').onclick = () => {
-            if (!vialImgNode.image()) {
-                alert('Please upload a vial image first.');
-                return;
-            }
-
+            if (!vialImgNode.image()) return;
             const canvas = document.createElement('canvas');
             canvas.width = vialImgNode.width();
             canvas.height = vialImgNode.height();
             const ctx = canvas.getContext('2d');
             ctx.drawImage(vialImgNode.image(), 0, 0, canvas.width, canvas.height);
-
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
             const w = canvas.width;
             const h = canvas.height;
 
-            // Simple Sobel-style vertical edge detection in the middle 30% of the vial
             const startY = Math.floor(h * 0.35);
             const endY = Math.floor(h * 0.65);
             const edgeScores = new Float32Array(w).fill(0);
-
             for (let y = startY; y < endY; y++) {
                 for (let x = 1; x < w - 1; x++) {
                     const idx = (y * w + x) * 4;
-                    // Grayscale conversion
                     const grayLeft = (data[idx - 4] + data[idx - 3] + data[idx - 2]) / 3;
                     const grayRight = (data[idx + 4] + data[idx + 5] + data[idx + 6]) / 3;
-                    const diff = Math.abs(grayRight - grayLeft);
-                    edgeScores[x] += diff;
+                    edgeScores[x] += Math.abs(grayRight - grayLeft);
                 }
             }
-
-            // Find peaks from left and right
-            let leftEdge = 0;
-            let rightEdge = w;
-            const threshold = (endY - startY) * 15; // Tunable sensitivity
-
-            for (let x = 10; x < w / 2; x++) {
-                if (edgeScores[x] > threshold) {
-                    leftEdge = x;
-                    break;
-                }
-            }
-            for (let x = w - 11; x > w / 2; x--) {
-                if (edgeScores[x] > threshold) {
-                    rightEdge = x;
-                    break;
-                }
-            }
+            let leftEdge = 0, rightEdge = w;
+            const threshold = (endY - startY) * 15;
+            for (let x = 10; x < w / 2; x++) { if (edgeScores[x] > threshold) { leftEdge = x; break; } }
+            for (let x = w - 11; x > w / 2; x--) { if (edgeScores[x] > threshold) { rightEdge = x; break; } }
 
             const vialCenterX = (leftEdge + rightEdge) / 2 + vialImgNode.x();
             const vialWidth = rightEdge - leftEdge;
-
-            // Update UI and apply
-            const newPosX = Math.round((vialCenterX / width) * 1000);
-            const newScale = Math.round((vialWidth / labelImgNode.width()) * 100 * 0.95); // 95% width for safety
-
-            document.getElementById('posX').value = newPosX;
-            document.getElementById('scale').value = newScale;
-            document.getElementById('wrap-intensity').value = 40; // Default wrap hint
-
-            analyzeLighting(); // Also analyze lighting during magic fit
+            document.getElementById('posX').value = Math.round((vialCenterX / width) * 1000);
+            document.getElementById('scale').value = Math.round((vialWidth / labelImgNode.width()) * 100 * 0.95);
+            document.getElementById('wrap-intensity').value = 40;
+            analyzeLighting();
             updateTransform();
             alert('Magic Fit applied!');
+        };
+
+        // --- Initialization ---
+
+        window.onload = () => {
+            const img = new Image();
+            img.onload = () => handleVialImage(img, 'default-vial.png');
+            img.src = DEFAULT_VIAL_BASE64;
+
+            document.getElementById('vial-upload').onchange = (e) => handleUpload(e, 'vial');
+            document.getElementById('label-upload').onchange = (e) => handleUpload(e, 'label');
+
+            document.querySelectorAll('input[type="range"]').forEach(input => {
+                input.addEventListener('input', updateTransform);
+            });
         };
     </script>
 </body>
