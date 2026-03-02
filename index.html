@@ -197,7 +197,7 @@
             </div>
             <div class="control-item">
                 <label>Scale</label>
-                <input type="range" id="scale" min="1" max="500" value="100">
+                <input type="range" id="scale" min="1" max="1000" value="100">
             </div>
             <div class="control-item">
                 <label>Rotation</label>
@@ -240,7 +240,7 @@
 
     <script>
 
-        const DEFAULT_VIAL_BASE64 = "data:image/jpeg;base64,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UYHkqm/JQAB1UE5QDY7ogIiIABKnooHjlQOiCUREBSD5qEYgnJHgpOPFR7Se0ghERAQdUUjxQC3yQAjxUDxTdAKIPVEBCcoNgiAiIgIiDKAiIEBFPRQgIiIIaQNkcfBQdjsoQSq2HIVA6puOiCrk3VWBjCpaeufNEEcvvVWcHZQiAiIgIiICIiAiIgKB0UpjZAREQFUCFSiCtUk+RUKMepQSjTjqidUDO+UREBERAREQEREAdUREBERARSNxhQgIiICZwiICIiAiIgZwiIgIIKCUQEREEDopREBETdAREQQOilEQSPMlSRlRkqB6koHRMoiAiIgIiICIiAiIgIiICIiCWofLCb8qNQQikj1UICIiAiIgIiICIiCMBSiICIiAiIgdEREBERAREQEREBERAREQFA3UogIiICIiAiKMe9BKIiAiIgIiICIiAiIghuBsoJBQjBU426IJCIwZAU9DnCB47qPciICIiAiN6bhM4QQ3KlEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREEDopREBERAREQEREEDopREBERARSRhQgIiICKBnG6noggdFKIgIiICIiAiJhAQZ8ERp65QMFFIOFCAiJ1CCG9FKhvRSgIh3QHCCpvTCDooagONigHcqFOd8qEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERATqidEBEyfNEBERBDf0qPEqpijx6IDOgCkb9SgUkABBCZwpDchQgZwiIOqCRk+KhVKlAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA6oiICIiAiIgIiICIiAiJkoCIiAiJk+aAiIgIiICIiAiIiNJyMbKEREiIiAiKM7ZQSipBVSAiIgJnKkFQgjAKlEQEREBEUDoglERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARFIw7byQUtIGyY3yo5TjKkHwwglTkYVPUbhS3YHIQT7PkoUgjyTGUEYJQKo9FQOiCR1O6IpxtlBCKcY6qEBERAREQEREBERAREQEREBERAREQEREBFORjChAREQEREBERAREQEREBERAREQEREBERAREQAMqQMqB1U4OUEIpIPUqMjogImC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";
+        const DEFAULT_VIAL_BASE64 = "data:image/jpeg;base64,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UYHkqm/JQAB1UE5QDY7ogIiIABKnooHjlQOiCUREBSD5qEYgnJHgpOPFR7Se0ghERAQdUUjxQC3yQAjxUDxTdAKIPVEBCcoNgiAiIgIiDKAiIEBFPRQgIiIIaQNkcfBQdjsoQSq2HIVA6puOiCrk3VWBjCpaeufNEEcvvVWcHZQiAiIgIiICIiAiIgKB0UpjZAREQFUCFSiCtUk+RUKMepQSjTjqidUDO+UREBERAREQEREAdUREBERARSNxhQgIiICZwiICIiAiIgZwiIgIIKCUQEREEDopREBETdAREQQOilEQSPMlSRlRkqB6koHRMoiAiIgIiICIiAiIgIiICIiCWofLCb8qNQQikj1UICIiAiIgIiICIiCMBSiICIiAiIgdEREBERAREQEREBERAREQFA3UogIiICIiAiKMe9BKIiAiIgIiICIiAiIghuBsoJBQjBU426IJCIwZAU9DnCB47qPciICIiAiN6bhM4QQ3KlEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREEDopREBERAREQEREEDopREBERARSRhQgIiICKBnG6noggdFKIgIiICIiAiJhAQZ8ERp65QMFFIOFCAiJ1CCG9FKhvRSgIh3QHCCpvTCDooagONigHcqFOd8qEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERATqidEBEyfNEBERBDf0qPEqpijx6IDOgCkb9SgUkABBCZwpDchQgZwiIOqCRk+KhVKlAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARFIw7byQUtIGyY3yo5TjKkHwwglTkYVPUbhS3YHIQT7PkoUgjyTGUEYJQKo9FQOiCR1O6IpxtlBCKcY6qEBERAREQEREBERAREQEREBERAREQEREBFORjChAREQEREBERAREQEREBERAREQEREBERAREQAMqQMqB1U4OUEIpIPUqMjogImCUQT0O4QhSM+KlBQiqIVKAiIgZPmiKeVBCKeVMFBCJjKnB8kEIp5fVOVBCKrB9EOUFKIiAiYyp5fJBCKcFQgIikDxyghEPVEBEUDPiglERARTj1ChAREQEREBERAREQEREBERAwiZyMIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICBFP6kFGSoUjqoQSOqqTZUkb9EFSIiAiIgkDKY2yoRAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf//Z";
 
         // Constants & Utilities
         const width = 1000;
@@ -251,64 +251,149 @@
             height: height
         });
 
-        const layer = new Konva.Layer();
-        stage.add(layer);
+        const mainLayer = new Konva.Layer();
+        stage.add(mainLayer);
 
         // State & Nodes
         const vialImgNode = new Konva.Image({ x: 0, y: 0, width, height });
+        const labelGroup = new Konva.Group();
         const labelImgNode = new Konva.Image({ draggable: false });
-        const shadowOverlay = new Konva.Image({ width, height, listening: false, globalCompositeOperation: 'multiply' });
-        const highlightOverlay = new Konva.Image({ width, height, listening: false, globalCompositeOperation: 'screen' });
+        
+        mainLayer.add(vialImgNode);
+        mainLayer.add(labelGroup);
+        labelGroup.add(labelImgNode);
 
-        layer.add(vialImgNode);
-        layer.add(labelImgNode);
-        layer.add(shadowOverlay);
-        layer.add(highlightOverlay);
+        // Controls
+        const updateTransform = () => {
+            // Guard: don't run if core nodes aren't ready
+            if (!labelGroup || !labelImgNode) {
+                console.warn('updateTransform: Nodes not ready.');
+                return;
+            }
 
-        // Core Rendering Logic: Curved Deformation
-        function updateTransform() {
-            const posX = parseInt(document.getElementById('posX').value);
-            const posY = parseInt(document.getElementById('posY').value);
-            const scale = parseInt(document.getElementById('scale').value) / 100;
-            const rotation = parseInt(document.getElementById('rotation').value);
-            const wrap = parseInt(document.getElementById('wrap-intensity').value) / 100;
-            const smile = parseInt(document.getElementById('smile-intensity').value);
+            const px = document.getElementById('posX').value / 1000 * width;
+            const py = document.getElementById('posY').value / 1000 * height;
+            const sc = document.getElementById('scale').value / 100;
+            const rt = document.getElementById('rotation').value;
 
-            const baseWidth = labelImgNode.image() ? labelImgNode.image().width : 0;
-            const baseHeight = labelImgNode.image() ? labelImgNode.image().height : 0;
+            // Move the whole group
+            labelGroup.x(px);
+            labelGroup.y(py);
+            labelGroup.scaleX(sc);
+            labelGroup.scaleY(sc);
+            labelGroup.rotation(rt);
 
-            if (!baseHeight) return;
+            updateLighting();
+            applyWarp();
+            mainLayer.batchDraw();
+        };
 
-            const targetWidth = baseWidth * scale;
-            const targetHeight = baseHeight * scale;
+        const applyWarp = () => {
+            if (!labelImgNode.image()) return;
 
-            // Simple "Smile" implementation using Konva's offset and scale
-            // For a true mesh deformation, we'd need a custom Shape or WebGL
-            // Here we use a CSS-like transformation approach inside Konva
-            labelImgNode.setAttrs({
-                x: posX,
-                y: posY,
-                width: targetWidth,
-                height: targetHeight,
-                rotation: rotation,
-                offsetX: targetWidth / 2,
-                offsetY: targetHeight / 2,
+            const wrapIntensity = document.getElementById('wrap-intensity').value / 100;
+            const smileIntensity = document.getElementById('smile-intensity').value / 100;
+
+            const padding = 150;
+
+            const cylinderWarp = function (imageData) {
+                if (wrapIntensity === 0 && smileIntensity === 0) return;
+
+                const data = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                const outData = new Uint8ClampedArray(data.length);
+
+                const centerX = width / 2;
+                const labelWidth = width - padding * 2;
+
+                const theta = wrapIntensity * (Math.PI / 2);
+                const visibleWidthFactor = theta > 0 ? Math.sin(theta) / theta : 1;
+                const visibleHalfWidth = (labelWidth / 2) * visibleWidthFactor;
+
+                for (let y = 0; y < height; y++) {
+                    for (let x = 0; x < width; x++) {
+                        const idx = (y * width + x) * 4;
+                        const nx = (x - centerX) / visibleHalfWidth;
+                        if (Math.abs(nx) > 1) continue;
+
+                        let sourceX = x;
+                        if (wrapIntensity > 0) {
+                            const angle = Math.asin(nx * Math.sin(theta));
+                            const sourceXOffset = (labelWidth / 2) * (angle / theta);
+                            sourceX = Math.round(centerX + sourceXOffset);
+                        }
+
+                        let sourceY = y;
+                        if (smileIntensity !== 0) {
+                            const verticalShift = smileIntensity * 60 * (1 - Math.cos(nx * theta));
+                            sourceY = Math.round(y - verticalShift);
+                        }
+
+                        if (sourceX >= 0 && sourceX < width && sourceY >= 0 && sourceY < height) {
+                            const sourceIdx = (sourceY * width + sourceX) * 4;
+                            outData[idx] = data[sourceIdx];
+                            outData[idx + 1] = data[sourceIdx + 1];
+                            outData[idx + 2] = data[sourceIdx + 2];
+                            outData[idx + 3] = data[sourceIdx + 3];
+                        }
+                    }
+                }
+                imageData.data.set(outData);
+            };
+
+            labelGroup.clearCache();
+            labelGroup.filters([cylinderWarp]);
+
+            labelGroup.cache({
+                x: -padding,
+                y: -padding,
+                width: labelImgNode.width() + padding * 2,
+                height: labelImgNode.height() + padding * 2,
+                offset: padding
+            });
+        };
+
+        const updateLighting = () => {
+            // Remove existing overlays from group
+            labelGroup.find('.lighting').forEach(node => node.destroy());
+
+            if (!labelImgNode.image()) return;
+
+            const shadowOpacity = document.getElementById('shadow-opacity').value / 100;
+            const highlightOpacity = document.getElementById('highlight-opacity').value / 100;
+
+            // Create a "wrap" effect by adding linear gradients over the label
+            // These now live INSIDE the group so they warp with the label
+            const shadowOverlay = new Konva.Rect({
+                name: 'lighting',
+                x: 0,
+                y: 0,
+                width: labelImgNode.width(),
+                height: labelImgNode.height(),
+                fillLinearGradientStartPoint: { x: 0, y: 0 },
+                fillLinearGradientEndPoint: { x: labelImgNode.width(), y: 0 },
+                fillLinearGradientColorStops: [0, `rgba(0,0,0,${shadowOpacity})`, 0.5, 'transparent', 1, 'transparent'],
+                globalCompositeOperation: 'source-atop', // CLIPS TO LABEL SHAPE
+                listening: false
             });
 
-            // Lighting setup
-            shadowOverlay.opacity(parseInt(document.getElementById('shadow-opacity').value) / 100);
-            highlightOverlay.opacity(parseInt(document.getElementById('highlight-opacity').value) / 100);
+            const highlightOverlay = new Konva.Rect({
+                name: 'lighting',
+                x: 0,
+                y: 0,
+                width: labelImgNode.width(),
+                height: labelImgNode.height(),
+                fillLinearGradientStartPoint: { x: 0, y: 0 },
+                fillLinearGradientEndPoint: { x: labelImgNode.width(), y: 0 },
+                fillLinearGradientColorStops: [0, 'transparent', 0.5, 'transparent', 0.8, `rgba(255,255,255,${highlightOpacity})`, 1, 'transparent'],
+                globalCompositeOperation: 'source-atop', // CLIPS TO LABEL SHAPE
+                listening: false
+            });
 
-            // Apply horizontal "wrap" via scale distortion (fake 3D)
-            const wrapFactor = 1 - (wrap * 0.3);
-            labelImgNode.scaleX(wrapFactor);
-
-            // Vertical curve (Smile) approximation
-            // Note: True curved warping requires custom Konva.Shape
-            labelImgNode.skewX(smile / 1000);
-
-            layer.batchDraw();
-        }
+            labelGroup.add(shadowOverlay);
+            labelGroup.add(highlightOverlay);
+        };
 
         // Image Handling
         function loadVial(src) {
@@ -316,7 +401,7 @@
             img.onload = () => {
                 vialImgNode.image(img);
                 document.getElementById('vial-status').innerText = "Vial Loaded ✓";
-                layer.batchDraw();
+                mainLayer.batchDraw();
             };
             img.src = src;
         }
@@ -325,6 +410,12 @@
             const img = new Image();
             img.onload = () => {
                 labelImgNode.image(img);
+                labelImgNode.width(img.width);
+                labelImgNode.height(img.height);
+                // Center offset for rotation
+                labelImgNode.offsetX(img.width / 2);
+                labelImgNode.offsetY(img.height / 2);
+                
                 document.getElementById('label-status').innerText = "Label Loaded ✓";
                 updateTransform();
             };
@@ -353,14 +444,50 @@
             reader.readAsDataURL(file);
         };
 
-        document.getElementById('export-btn').onclick = () => {
-            const dataURL = stage.toDataURL({ pixelRatio: 2 });
-            const link = document.createElement('a');
-            link.download = 'vial-mockup.jpg';
-            link.href = dataURL;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        // Robust Compatibility-First JPEG Export
+        document.getElementById('export-btn').onclick = function () {
+            const btn = this;
+            const originalText = btn.innerText;
+
+            try {
+                btn.innerText = 'Saving...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+
+                // Ensure the stage is rendered correctly before capture
+                mainLayer.draw();
+
+                // Using toDataURL (JPEG) for maximum compatibility with local file:// protocols
+                // This avoids the Blob/revocation issues seen in some Mac browsers
+                const dataUrl = stage.toDataURL({
+                    mimeType: 'image/jpeg',
+                    quality: 0.9,
+                    pixelRatio: 1.5,
+                    backgroundColor: 'white' // Flatten transparency onto white
+                });
+
+                const link = document.createElement('a');
+                link.download = `vial-render-${Math.floor(Date.now() / 1000)}.jpg`;
+                link.href = dataUrl;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(() => {
+                    btn.innerText = 'Saved!';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }, 1500);
+                }, 500);
+
+            } catch (err) {
+                console.error('Export failed:', err);
+                alert('Export failed. Please try again or check console for errors.');
+                btn.innerText = 'Error';
+                btn.disabled = false;
+            }
         };
 
         document.getElementById('config-btn').onclick = () => {
