@@ -263,6 +263,63 @@
         mainLayer.add(labelGroup);
         labelGroup.add(labelImgNode);
 
+        // Upload Handlers
+        const handleVialImage = (img, name) => {
+            vialImgNode.image(img);
+            const scale = Math.min(width / img.width, height / img.height);
+            vialImgNode.width(img.width * scale);
+            vialImgNode.height(img.height * scale);
+            vialImgNode.x((width - vialImgNode.width()) / 2);
+            vialImgNode.y((height - vialImgNode.height()) / 2);
+            mainLayer.draw();
+            document.getElementById('vial-status').innerText = name;
+
+            // Auto-analyze lighting when a new vial is loaded
+            setTimeout(analyzeLighting, 100);
+        };
+
+        document.getElementById('vial-upload').onchange = (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => handleVialImage(img, file.name);
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        // Load Default Vial on Start
+        window.onload = () => {
+            const img = new Image();
+            img.onload = () => handleVialImage(img, 'default-vial.png');
+            img.src = DEFAULT_VIAL_BASE64;
+        };
+
+        document.getElementById('label-upload').onchange = (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    originalLabelImageObj = img; // Store raw for cropping
+                    labelImgNode.image(img);
+                    labelImgNode.width(img.width);
+                    labelImgNode.height(img.height);
+                    // Center the label in the group's local coordinates
+                    labelImgNode.x(0);
+                    labelImgNode.y(0);
+                    // Set group offset to center the content
+                    labelGroup.offsetX(labelImgNode.width() / 2);
+                    labelGroup.offsetY(labelImgNode.height() / 2);
+                    updateTransform();
+                    document.getElementById('label-status').innerText = file.name;
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
         // Controls
         const updateTransform = () => {
             // Guard: don't run if core nodes aren't ready
@@ -294,7 +351,15 @@
             const wrapIntensity = document.getElementById('wrap-intensity').value / 100;
             const smileIntensity = document.getElementById('smile-intensity').value / 100;
 
-            const padding = 150;
+            // FIX: Normalize scale to 1 before caching to prevent clipping at high zoom.
+            // Konva will then scale the cached output to the desired size.
+            const originalScale = labelGroup.scaleX();
+            labelGroup.scale({ x: 1, y: 1 });
+
+            labelGroup.clearCache();
+
+            // FIXED PADDNG for 1x scale
+            const padding = 200;
 
             const cylinderWarp = function (imageData) {
                 if (wrapIntensity === 0 && smileIntensity === 0) return;
@@ -342,7 +407,6 @@
                 imageData.data.set(outData);
             };
 
-            labelGroup.clearCache();
             labelGroup.filters([cylinderWarp]);
 
             labelGroup.cache({
@@ -350,8 +414,12 @@
                 y: -padding,
                 width: labelImgNode.width() + padding * 2,
                 height: labelImgNode.height() + padding * 2,
-                offset: padding
+                offset: padding,
+                pixelRatio: 2 // High detail for resizing
             });
+
+            // Restore desired scale
+            labelGroup.scale({ x: originalScale, y: originalScale });
         };
 
         const updateLighting = () => {
